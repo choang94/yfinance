@@ -1,5 +1,6 @@
-# yfinance
-Streaming yfinance data for 10 stocks on May 11th, 2021 with an interval of 5 minutes to AWS Kinesis using AWS Lambda for interactive query on AWS Athena
+## Streaming yfinance data for 10 stocks on May 11th, 2021 with an interval of 5 minutes to AWS Kinesis using AWS Lambda to for interactive query on AWS Athena 
+
+Project objective: Learning about near real-time data streaming pipeline from loading data to querying data using AWS technologies
 
 The 10 stocks are:
 - Facebook (FB)
@@ -45,6 +46,6 @@ Once done setting up the crawler, run the crawler then double check by clicking 
 
 Then, go to Athena and choose the database that contains the table and start querying the data directly from s3 bucket. 
 
-For example, I did a query to get the highest "high" every hour of each stock. (check query.sql) Then download the result in csv file, under "result.csv" and read that file in a jupyter notebook to do a couple of visualizations using matplotlib and seaborn. (Check Analysis.pdf and Analysis.ipynb)
+For example, I did a query to get the highest "high" every hour of each stock and another query to get the lowest "low" of each stock. (check query.sql) Then download the results in csv file, under "result.csv" and "result2.csv", accordingly. Then, I read those files in a jupyter notebook to do a couple of visualizations using matplotlib and seaborn. (Check Analysis.pdf and Analysis.ipynb)
 
 Note: finance_data.zip is the data that I retrieved from s3 bucket
