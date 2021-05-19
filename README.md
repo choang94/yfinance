@@ -25,6 +25,8 @@ Third, create a S3 bucket to use it as a destination for the data firehose deliv
 
 Fourth, specify the buffer conditions fo the data firehose delivery stream: 1MiB or 60 seconds
 
+(See Appendix A for a screenshot of my Kinesis Data Firehose Delivery Stream Monitoring)
+
 II. Provision AWS Lambda to transform and stream yfinance data to AWS Kinesis data stream and store it in AWS S3 bucket
 
 Go to AWS Lambda and create a function in python like data_transformer.py, which uses the yfinance module to get stock data and transform each record into a json object like below to push them to AWS Kinesis:
@@ -49,3 +51,7 @@ Then, go to Athena and choose the database that contains the table and start que
 For example, I did a query to get the highest "high" every hour of each stock and another query to get the lowest "low" of each stock. (check query.sql) Then download the results in csv file, under "result.csv" and "result2.csv", accordingly. Then, I read those files in a jupyter notebook to do a couple of visualizations using matplotlib and seaborn. (Check Analysis.pdf and Analysis.ipynb)
 
 Note: finance_data.zip is the data that I retrieved from s3 bucket
+
+### Appendix A
+![image](https://user-images.githubusercontent.com/55850536/118857564-2e8ce680-b8a6-11eb-93e6-16880b30399c.png)
+
