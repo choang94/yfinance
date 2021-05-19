@@ -15,7 +15,7 @@ The 10 stocks are:
 - Datadog (DDOG)
 
 
-I. Set up AWS Kinesis data stream and data firehose delivery stream
+#### I. Set up AWS Kinesis data stream and data firehose delivery stream
 
 First, we need to go to AWS Kinesis and create a data stream with 1 open shard 
 
@@ -27,7 +27,7 @@ Fourth, specify the buffer conditions fo the data firehose delivery stream: 1MiB
 
 (See Appendix A for a screenshot of my Kinesis Data Firehose Delivery Stream Monitoring)
 
-II. Provision AWS Lambda to transform and stream yfinance data to AWS Kinesis data stream and store it in AWS S3 bucket
+#### II. Provision AWS Lambda to transform and stream yfinance data to AWS Kinesis data stream and store it in AWS S3 bucket
 
 Go to AWS Lambda and create a function in python like data_transformer.py, which uses the yfinance module to get stock data and transform each record into a json object like below to push them to AWS Kinesis:
 
@@ -40,7 +40,7 @@ Go to AWS Lambda and create a function in python like data_transformer.py, which
 
 Note: In order to import yfinance and other third party libraries, we need to create a lambda layer that includes the python dependencies and add that layer to the lambda function
 
-III. Configure AWS Glue and Athena to query directly from S3 bucket
+#### III. Configure AWS Glue and Athena to query directly from S3 bucket
 
 Go to AWS Glue and create tables using a crawler. Then, set up a crawler that points to the s3 bucket that contains the data that we just streamed. 
 
